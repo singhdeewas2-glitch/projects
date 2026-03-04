@@ -14,11 +14,11 @@ router.post('/register', register);
 
 
 // Review routes
-router.post('/books/:bookId/review',createReview);
-router.put('/books/:bookId/review/:reviewId', updateReview);
-router.delete('/books/:bookId/review/:reviewId', deleteReview);
+router.post('/books/:bookId/review', verifyToken, createReview);
+router.put('/books/:bookId/review/:reviewId', verifyToken, updateReview);
+router.delete('/books/:bookId/review/:reviewId',verifyToken, deleteReview);
 
 // Image upload route
-router.post("/frontend", uploadImage)
+router.post("/frontend",verifyToken ,uploadImage)
 
 export default router;
